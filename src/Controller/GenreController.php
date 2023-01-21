@@ -13,19 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GenreController extends AbstractController
 {
-    /**
-     * @Route("/genre", name="app_genre")
-     */
-    public function displayListGenre(EntityManagerInterface $entityManager): Response
-    {
-        //creation variable de recepetion objet
-        $repository = $entityManager->getRepository(Genre::class);
-        //appel de la fonction findAll pour avoir acces a l'ensemble des genres de la bd effectue une select * dans la table Genre
-        $genre = $repository->findAll();
-        return $this->render('genre/display.html.twig', [
-            'list_genre' => $genre,
-        ]);
-    }
 
     /**
      * @Route("/genre/formulaire", name="app_genre_formulaire")
@@ -58,4 +45,18 @@ class GenreController extends AbstractController
 
 
     }
+    /**
+     * @Route("/genre/listing", name="app_genre")
+     */
+    public function displayListGenre(EntityManagerInterface $entityManager): Response
+    {
+        //creation variable de recepetion objet
+        $repository = $entityManager->getRepository(Genre::class);
+        //appel de la fonction findAll pour avoir acces a l'ensemble des genres de la bd effectue une select * dans la table Genre
+        $genre = $repository->findAll();
+        return $this->render('genre/display.html.twig', [
+            'list_genre' => $genre,
+        ]);
+    }
+
 }

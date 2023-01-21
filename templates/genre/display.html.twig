@@ -21,7 +21,7 @@
             {% for key in list_genre %}
                 <tr>
                     <th>{{ key.nom}}</th>
-                    <th><a class=" list-group-item list-group-item-action" href=""> go description</a></th>
+                    <th>{{ key.description }}</th>
                     {# pensez a implementer de suppression du genre #}
                 </tr>
             {% endfor %}
