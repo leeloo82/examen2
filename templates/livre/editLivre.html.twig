@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formLivre 'bootstrap_5_layout.html.twig' %}
+{% block title %}edit livre!{% endblock %}
+
+{% block body %}
+   <h1>Modification des données</h1>
+
+   <div class="form container">
+      {{ form_start(formLivre) }}
+         {{ form_widget(formLivre) }}
+         <div>
+            <input type="submit" value="Enregistrer" class="btn btn-primary"/>
+         </div>
+      {{ form_end(formLivre) }}
+   </div>
+
+
+
+{% endblock %}

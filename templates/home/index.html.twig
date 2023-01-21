@@ -30,7 +30,7 @@
                     <th> <a class=" list-group-item list-group-item-action" href="{{path('app_livre_description',{ id: key.id })}}">{{key.titre }}</a></th>
                     {#<th>{{ key.votes }}</th>
                     <th>{{ key.genre_id}}</th>#}
-                    <th><a class=" list-group-item list-group-item-action" href="#">Edit</a></th>
+                    <th><a class=" list-group-item list-group-item-action" href="{{ path('app_livre_edit',{ id: key.id }) }}">Edit</a></th>
                     <th><a class=" list-group-item list-group-item-action" href="#">Delete</a></th>
 
                 </tr>

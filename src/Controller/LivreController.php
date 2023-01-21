@@ -35,9 +35,9 @@ class LivreController extends AbstractController
             $entityManager->persist($livre);
             $entityManager->flush();
             //redirection vers une vue
-            //return $this->redirectToRoute('app_genre');
+            return $this->redirectToRoute('app_home');
         }
-        //creation de la vue
+
         //creation de la vue
         return $this->render('livre/formLivre.html.twig', [
             'formLivre' => $formLivre->createView()
@@ -63,6 +63,32 @@ class LivreController extends AbstractController
      * @Route("/livre/edit/{id}", name="app_livre_edit")
      *
      */
-    public function
+    public function edit(EntityManagerInterface $entityManager,Request $request,$id){
+
+        //donner l'acces a la table livre
+        $repository =$entityManager->getRepository(Livre::class);
+        $livre = $repository->find($id);
+
+        $formLivre = $this->createForm(LivreType::class, $livre);
+
+        $formLivre->handleRequest($request);
+
+        if ($formLivre->isSubmitted() && $formLivre->isValid()) {
+            $livre = $formLivre->getData();
+
+            //envoie du formulaire
+
+            $entityManager->flush();
+            //redirection vers une vue
+            return $this->redirectToRoute('app_home');
+        }
+
+        //creation de la vue
+        return $this->render('livre/editLivre.html.twig', [
+            'formLivre' => $formLivre->createView()
+        ]);
+    }
+
+
 
 }
