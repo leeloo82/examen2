@@ -2,11 +2,13 @@
 
 
 
-{% block title %}add genre!{% endblock %}
+{% block title %}edition genre!{% endblock %}
 
 {% block body %}
-    {# placer lien bouton vers le formulaire #}
-    <a class="btn btn-primary" href="{{ path('app_genre_formulaire') }}" role="button">Link</a>
+    <div>
+        <a class="btn btn-primary" href="{{ path('app_genre_formulaire') }}" role="button">add genre</a>
+    </div>
+
     <h1>Listing genre</h1>
     {# création de la vue listing des genres avec bootstrap via tableau #}
 <div class="tab container">
