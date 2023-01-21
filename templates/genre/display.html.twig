@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}add genre!{% endblock %}
+
+{% block body %}
+    {# placer lien bouton vers le formulaire #}
+    <a class="btn btn-primary" href="{{ path('app_genre_formulaire') }}" role="button">Link</a>
+    <h1>Listing genre</h1>
+    {# création de la vue listing des genres avec bootstrap via tableau #}
+<div class="tab container">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">nom</th>
+                <th scope="col">description</th>
+            </tr>
+        </thead>
+        <thead>
+            {% for key in list_genre %}
+                <tr>
+                    <th>{{ key.nom}}</th>
+                    <th><a class=" list-group-item list-group-item-action" href=""> go description</a></th>
+                    {# pensez a implementer de suppression du genre #}
+                </tr>
+            {% endfor %}
+        </thead>
+    </table>
+</div>
+
+{% endblock %}
