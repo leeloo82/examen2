@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Détail-Livre{% endblock %}
+
+{% block body %}
+    {# declaration de variable dans twig #}
+    {% set dateAjout = livre_detail.DateAjout|date('d-m-Y')%}
+    {% set dateSortie = livre_detail.DateParution|date('d-m-Y')%}
+
+    <div class="card" style="text-align: center;margin:auto auto ;width:50%">
+        <div class="card-body">
+            <h5 class="card-title">{{livre_detail.titre}}</h5>
+            <p class="card-text">{{livre_detail.resume}}</p>
+            <p class="card-text">{{livre_detail.auteur}}</p>
+            <p class="card-text">Date de création:{{dateAjout}}</p>
+            <p class="card-text">Date de sortie album:{{dateSortie}}</p>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

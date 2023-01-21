@@ -44,4 +44,25 @@ class LivreController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/livre/description/{id}", name="app_livre_description")
+     */
+    public function displayDetailLivre($id, EntityManagerInterface $entityManager): response
+    {
+
+        //reception de l'objet de la la class repository
+        $repository = $entityManager->getRepository(Livre::class);
+        //appel de la fonction pour effectuer un select all dans la class repository find est par defaut
+        $livre = $repository->find($id);
+        //self::print_q($article);
+        return $this->render('livre/detailLivre.html.twig', [
+            'livre_detail' => $livre,
+        ]);
+    }
+    /**
+     * @Route("/livre/edit/{id}", name="app_livre_edit")
+     *
+     */
+    public function
+
 }
