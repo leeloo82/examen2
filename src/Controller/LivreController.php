@@ -89,6 +89,20 @@ class LivreController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/livre/delete/{id}", name="app_livre_delete")
+     *
+     */
+    function delete(Livre $id){
 
+        //recuperation de l'entity manager
+        $repository = $this->getDoctrine()->getManager();
+        //appel de la methode remove avec le parametre de suppression
+        $repository->remove($id);
+        //mise a jour de la data base
+        $repository->flush();
+
+        return $this->redirectToRoute('app_home');
+    }
 
 }
