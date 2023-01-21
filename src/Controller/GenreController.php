@@ -58,5 +58,33 @@ class GenreController extends AbstractController
             'list_genre' => $genre,
         ]);
     }
+    /**
+     * @Route("/genre/edit/{id}", name="app_genre_edit")
+     *
+     */
+    public function edit(EntityManagerInterface $entityManager,Request $request,$id){
+        $repository =$entityManager->getRepository(Genre::class);
+        $genre = $repository->find($id);
+        $formGenre = $this->createForm(TypeGenreType::class,$genre);
+
+        $formGenre->handleRequest($request);
+        /*condition qui va tester si le formulaire est en envoie et valid redirige vers une vue sinon
+        va creer le formulaire*/
+        if($formGenre->isSubmitted()&& $formGenre->isValid())
+        {
+            $genre = $formGenre->getData();
+
+            //envoie du formulaire
+
+            $entityManager->flush();
+            //redirection vers une vue
+            return $this->redirectToRoute('app_genre');
+        }
+        //creation de la vue
+        return $this->render ('genre/modificationGenre.html.twig',[
+            'formGenre'=>$formGenre->createView()
+        ]);
+
+    }
 
 }

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formGenre 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}add genre!{% endblock %}
+
+{% block body %}
+
+    <h1>Modification genre</h1>
+    {# création de la vue champ formulaire avec bootstrap #}
+
+    <div class="form container">
+        {{ form_start(formGenre) }}
+        {{ form_widget(formGenre) }}
+        <div>
+            <input type="submit" value="Enregistrer" class="btn btn-primary"/>
+        </div>
+        {{ form_end(formGenre) }}
+    </div>
+{% endblock %}

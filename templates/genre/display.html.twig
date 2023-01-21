@@ -15,6 +15,7 @@
             <tr>
                 <th scope="col">nom</th>
                 <th scope="col">description</th>
+                <th scope="col">editer</th>
             </tr>
         </thead>
         <thead>
@@ -22,6 +23,7 @@
                 <tr>
                     <th>{{ key.nom}}</th>
                     <th>{{ key.description }}</th>
+                    <th><a class=" list-group-item list-group-item-action" href="{{ path('app_genre_edit',{ id: key.id }) }}">Edit</a></th>
                     {# pensez a implementer de suppression du genre #}
                 </tr>
             {% endfor %}
